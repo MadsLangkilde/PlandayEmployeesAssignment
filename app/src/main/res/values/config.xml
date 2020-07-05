@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planday_authentication_api_base_url">https://id.planday.com/</string>
+    <string name="planday_open_api_base_url">https://openapi.planday.com/hr/</string>
+    <string name="planday_open_api_version">1.0</string>
+    <string name="planday_open_api_client_id">b6e01899-f593-4eec-9b34-56fe41a5ecab</string>
+    <string name="planday_open_api_refresh_token">0gMDfQJWqkq0L6HMDSSxzw</string>
+</resources>

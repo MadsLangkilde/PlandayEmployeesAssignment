@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="MontserratBold">fonts/Montserrat-Bold.ttf</string>
+    <string name="MontserratSemiBold">fonts/Montserrat-SemiBold.ttf</string>
+    <string name="MontserratRegular">fonts/Montserrat-Regular.ttf</string>
+    <string name="MontserratMedium">fonts/Montserrat-Medium.ttf</string>
+</resources>

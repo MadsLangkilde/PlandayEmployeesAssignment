@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screen space -->
+    <dimen name="screen_space_horizontal">16dp</dimen>
+    <dimen name="screen_space_vertical">16dp</dimen>
+
+    <!-- Images -->
+    <dimen name="icon_image_size">32dp</dimen>
+    <dimen name="logo_splash_size">96dp</dimen>
+    <dimen name="logo_splash_text_width">143dp</dimen>
+    <dimen name="logo_splash_text_height">43dp</dimen>
+
+    <!-- Margin -->
+    <dimen name="margin_small">8dp</dimen>
+
+    <!-- Padding -->
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
+
+    <!-- Views -->
+    <dimen name="progress_horizontal_default_width">180dp</dimen>
+
+</resources>

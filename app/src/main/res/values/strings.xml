@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PlandayEmployeesAssignment</string>
+
+    <string name="authentication_status_in_progress">Vi er ved at lukke dig ind</string>
+    <string name="authentication_status_success">Velkommen</string>
+    <string name="authentication_status_failed">Øv! Noget gik galt!</string>
+    <string name="authentication_status_retrying">Vi prøver lige igen</string>
+
 </resources>
