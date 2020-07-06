@@ -11,5 +11,9 @@
     <com.planday.employeesassignment.app.views.SplashScreenLogoView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:attachSplashScreenLogoViewListener="@{splashScreenViewModel}"/>
+            app:attachSplashScreenLogoViewListener="@{splashScreenViewModel}"
+            app:setProgressText="@{splashScreenViewModel.progressText}"
+            app:showProgress="@{splashScreenViewModel.progressVisible}"
+            app:networkAvailable="@{splashScreenViewModel.networkAvailable}"
+            app:showRetryButton="@{splashScreenViewModel.showRetryButton}"/>
 </layout>

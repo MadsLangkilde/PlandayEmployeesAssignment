@@ -44,7 +44,7 @@ open class ApiAuthenticationRepository() : NetworkAvailabilityObserver {
     }
 
     open fun authenticate() {
-        if (!isInitialized || !isAuthenticationNeeded(lastAuthenticationTimestamp, openApiAuthentication.get()?.expiresIn ?: 0))
+        if (!isInitialized || !isAuthenticationNeeded(lastAuthenticationTimestamp, openApiAuthentication.get()?.expiresIn ?: 0) || isAuthenticationInProgress())
             return
 
         var retriesCount    = 0
@@ -71,7 +71,7 @@ open class ApiAuthenticationRepository() : NetworkAvailabilityObserver {
                     }
                 }
             }
-            .observeOn(Schedulers.io()).subscribe(object : DisposableSingleObserver<Response<OpenApiAuthentication>>() {
+            .subscribe(object : DisposableSingleObserver<Response<OpenApiAuthentication>>() {
                 override fun onSuccess(response: Response<OpenApiAuthentication>) {
                     if (response.isSuccessful) {
                         lastAuthenticationTimestamp = System.currentTimeMillis()
@@ -87,6 +87,11 @@ open class ApiAuthenticationRepository() : NetworkAvailabilityObserver {
                     dispose()
                 }
             })
+    }
+
+    fun isAuthenticationInProgress(): Boolean {
+        val state = authenticationProgressState.get()
+        return state == InProgress || state == Retrying
     }
 
     private fun onAuthenticationFailed() {

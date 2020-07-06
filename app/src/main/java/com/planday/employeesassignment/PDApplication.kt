@@ -12,14 +12,15 @@ class PDApplication : Application() {
     companion object {
     }
 
-    private val clientId                    = getString(R.string.planday_open_api_client_id)
-    private val refreshToken                = getString(R.string.planday_open_api_refresh_token)
-    private val authenticationBaseUrl       = getString(R.string.planday_authentication_api_base_url)
-    private val openApiBaseUrl              = getString(R.string.planday_open_api_base_url)
-    private val openApiVersion              = getString(R.string.planday_open_api_version)
 
     override fun onCreate() {
         super.onCreate()
+        val clientId                    = getString(R.string.planday_open_api_client_id)
+        val refreshToken                = getString(R.string.planday_open_api_refresh_token)
+        val authenticationBaseUrl       = getString(R.string.planday_authentication_api_base_url)
+        val openApiBaseUrl              = getString(R.string.planday_open_api_base_url)
+        val openApiVersion              = getString(R.string.planday_open_api_version)
+
         NetworkAvailabilityService.init(this)
 
         val apiAuthenticationRepository = ApiAuthenticationRepository.instance
@@ -28,7 +29,6 @@ class PDApplication : Application() {
         val apiEmployeesRepository      = EmployeesRepository.instance
         apiEmployeesRepository.init(ApiAuthenticationRepository.instance, EmployeesApi(openApiVersion, clientId, openApiBaseUrl), clientId, refreshToken)
 
-        // Adding networklisteners
         NetworkAvailabilityService.addListener(apiAuthenticationRepository)
         NetworkAvailabilityService.addListener(apiEmployeesRepository)
     }

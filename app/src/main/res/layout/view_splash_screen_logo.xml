@@ -40,29 +40,43 @@
     <com.planday.employeesassignment.app.views.PDTextView
             android:id="@+id/splashProgressTextView"
             style="@style/textview_progress_small"
-            android:paddingTop="@dimen/padding_medium"
             app:layout_constraintBottom_toTopOf="@+id/splashBottomProgressBar"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    <com.planday.employeesassignment.app.views.PDTextView
+            android:id="@+id/splashRetryButton"
+            style="@style/textview_transparent_button"
+            android:padding="@dimen/padding_small"
+            app:layout_constraintTop_toBottomOf="@+id/splashProgressTextView"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:visibility="invisible"/>
+            android:text="@string/retry"
+            android:visibility="gone"/>
 
     <ProgressBar
             android:id="@+id/splashBottomProgressBar"
-            style="@style/progressBarBlueHorizontal"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="@dimen/progress_horizontal_default_width"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/progress_horizontal_default_height"
+            android:indeterminate="true"
+            android:backgroundTint="@color/planday_blue"
+            android:indeterminateTint="@color/planday_light_blue"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:visibility="invisible"/>
 
     <ImageView
-            android:layout_width="@dimen/icon_image_size"
-            android:layout_height="@dimen/icon_image_size"
+            android:id="@+id/splashNetworkNotAvailableIcon"
+            android:layout_width="@dimen/icon_image_size_medium"
+            android:layout_height="@dimen/icon_image_size_medium"
             android:src="@drawable/icon_wifi_off"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:visibility="invisible"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,14 +4,16 @@ import com.planday.employeesassignment.data.apis.plandayopenapi.PlandayOpenApi
 import com.planday.employeesassignment.data.apis.plandayopenapi.employees.models.Employee
 import com.planday.employeesassignment.data.apis.plandayopenapi.employees.models.ResponseGetEmployees
 import io.reactivex.Maybe
+import io.reactivex.Single
+import retrofit2.Response
 
-class EmployeesApi(private val apiVersion: String, clientId: String, baseUrl: String) : PlandayOpenApi(clientId = clientId, baseUrl = baseUrl) {
+open class EmployeesApi(private val apiVersion: String, clientId: String, baseUrl: String) : PlandayOpenApi(clientId = clientId, baseUrl = baseUrl) {
 
-    fun getEmployees(limit: Int, offset: Int): Maybe<List<ResponseGetEmployees>> {
+    open fun getEmployees(limit: Int, offset: Int): Maybe<Response<ResponseGetEmployees>> {
         return makeRequest().getEmployees(apiVersion, limit, offset)
     }
 
-    fun putEmployee(employee: Employee) {
+    open fun putEmployee(employee: Employee): Maybe<Response<*>> {
         return makeRequest().putEmployee(apiVersion, employee.id, employee)
     }
 }

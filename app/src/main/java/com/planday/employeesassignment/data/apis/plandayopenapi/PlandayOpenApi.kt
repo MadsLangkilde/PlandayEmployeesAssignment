@@ -13,7 +13,6 @@ abstract class PlandayOpenApi(private var clientId: String, baseUrl: String) : A
     private var apiAuthorizationKeyName:    String = "Authorization"
     private var apiClientIdKeyName:         String = "X-ClientId"
 
-
     override fun getDefaultHeaders(): Map<String, String> {
         return hashMapOf(
             apiAcceptKeyName to "*/*",

@@ -15,17 +15,17 @@
     <style name="textview_progress_small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/progress_text_small</item>
+        <item name="android:textSize">@dimen/progress_text_default</item>
+        <item name="android:textColor">@color/grey_mid</item>
         <item name="typeface">@string/MontserratRegular</item>
-        <item name="color">@color/grey_mid</item>
     </style>
 
-    <style name="progressBarBlueHorizontal" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
-        <item name="android:layout_width">match_parent</item>
+    <style name="textview_transparent_button">
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">7dp</item>
-        <item name="android:indeterminate">true</item>
-        <item name="android:progressDrawable">@drawable/progress_drawable_blue</item>
+        <item name="android:textSize">@dimen/progress_text_default</item>
+        <item name="android:textColor">@color/planday_blue</item>
+        <item name="typeface">@string/MontserratRegular</item>
     </style>
 
 </resources>

@@ -1,14 +1,18 @@
 package com.planday.employeesassignment.app.splashscreen
 
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.planday.employeesassignment.R
 import com.planday.employeesassignment.app.framework.PDBaseActivity
+import com.planday.employeesassignment.app.activities.main.MainActivity
 import com.planday.employeesassignment.databinding.ActivitySplashScreenBinding
 
 
-class SplashScreenActivity : PDBaseActivity() {
+class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var mViewModel: SplashScreenViewModel
 
@@ -22,9 +26,24 @@ class SplashScreenActivity : PDBaseActivity() {
     }
 
     private fun initViewModel() {
-        mViewModel.authenticationTextProgress   = getString(R.string.authentication_status_in_progress)
-        mViewModel.authenticationTextSuccess    = getString(R.string.authentication_status_success)
-        mViewModel.authenticationTextFailed     = getString(R.string.authentication_status_failed)
-        mViewModel.authenticationTextRetrying   = getString(R.string.authentication_status_retrying)
+        mViewModel.initStringResources( getString(R.string.authentication_status_in_progress),
+                                        getString(R.string.authentication_status_success),
+                                        getString(R.string.authentication_status_failed),
+                                        getString(R.string.authentication_status_retrying))
+
+        mViewModel.onReadyForLaunch.observe(this, Observer { ready ->
+            if (ready) {
+                startApplication()
+            }
+        })
     }
+
+    private fun startApplication() {
+        mViewModel.onDestroy()
+        val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
+        startActivity(intent)
+        this@SplashScreenActivity.finish()
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+    }
+
 }
