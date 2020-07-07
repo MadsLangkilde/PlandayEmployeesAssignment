@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="editEmployeeViewModel"
+                type="com.planday.employeesassignment.app.pages.editemployee.viewmodel.EditEmployeeViewModel" />
+    </data>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium"
+            android:clickable="true"
+            android:focusable="true">
+
+        <com.planday.employeesassignment.app.views.PDTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/textview_edittext_title"
+                android:text="@string/edittext_title_firstname"/>
+
+        <com.planday.employeesassignment.app.views.edittext.PDCustomEditTextView
+                android:id="@+id/editEmployeeFirstNameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_xsmall"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:inputText="@={editEmployeeViewModel.firstName}"/>
+
+        <com.planday.employeesassignment.app.views.PDTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/textview_edittext_title"
+                android:text="@string/edittext_title_lastname"/>
+
+        <com.planday.employeesassignment.app.views.edittext.PDCustomEditTextView
+                android:id="@+id/editEmployeeLastNameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_xsmall"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:inputText="@={editEmployeeViewModel.lastName}"/>
+
+        <com.planday.employeesassignment.app.views.PDTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/textview_edittext_title"
+                android:text="@string/edittext_title_gender"/>
+
+        <Spinner
+                style="@style/spinner_round"
+                android:layout_marginBottom="@dimen/margin_large"
+                app:spinnerItems="@{editEmployeeViewModel.gendersObservable}"
+                app:selectedItem="@{editEmployeeViewModel.selectedGenderValue}"
+                app:spinnerSelectListener="@{editEmployeeViewModel}"/>
+
+        <com.planday.employeesassignment.app.views.PDTextView
+                style="@style/button_primary"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="@{!editEmployeeViewModel.submitInProgress}"
+                android:focusable="@{!editEmployeeViewModel.submitInProgress}"
+                android:enabled="@{!editEmployeeViewModel.submitInProgress}"
+                android:onClick="@{() ->  editEmployeeViewModel.onSubmitEmployeeChanges()}"
+                android:text="@string/save_changes"/>
+    </LinearLayout>
+
+</layout>

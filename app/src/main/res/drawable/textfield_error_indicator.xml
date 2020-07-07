@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2014 FK Distribution.
+  ~ All rights, including trade secret rights, reserved.
+  -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shape="oval">
+    <corners android:radius="14dp"/>
+    <solid android:color="@color/red"/>
+</shape>

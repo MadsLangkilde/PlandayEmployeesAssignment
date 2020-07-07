@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <com.planday.employeesassignment.app.views.PDTextView
+            android:id="@+id/badgeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/badge_blue_gradient"
+            android:layout_margin="@dimen/margin_xsmall"
+            android:paddingLeft="@dimen/padding_small"
+            android:paddingRight="@dimen/padding_small"
+            android:paddingTop="@dimen/padding_xsmall"
+            android:paddingBottom="@dimen/padding_xsmall"
+            android:textSize="@dimen/badge_small_textsize"
+            android:textColor="@color/white"
+            app:typeface="@string/MontserratMedium"
+            android:gravity="center"/>
+</FrameLayout>

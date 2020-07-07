@@ -8,5 +8,5 @@ class ResponseGetEmployees {
     lateinit var paging: Paging
 
     @SerializedName("data")
-    lateinit var data: ArrayList<Employee>
+    lateinit var data: ArrayList<BaseEmployee>
 }

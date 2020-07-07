@@ -5,4 +5,9 @@
         <item name="android:windowBackground">@color/white</item>
     </style>ismanden666
 
+    <style name="PlandayTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/planday_blue</item>
+        <item name="android:navigationBarColor">@color/planday_blue</item>
+    </style>
+
 </resources>

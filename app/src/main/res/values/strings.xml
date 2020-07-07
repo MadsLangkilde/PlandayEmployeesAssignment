@@ -1,10 +1,22 @@
 <resources>
+    <string name="company_name">Planday</string>
     <string name="app_name">PlandayEmployeesAssignment</string>
 
-    <string name="authentication_status_in_progress">Vi er ved at lukke dig ind</string>
-    <string name="authentication_status_success">Velkommen</string>
+    <string name="authentication_status_in_progress">Verificerer appen..</string>
+    <string name="authentication_status_success">Indlæser så hurtigt vi kan..</string>
     <string name="authentication_status_failed">Øv! Noget gik galt!</string>
     <string name="authentication_status_retrying">Vi prøver lige igen</string>
     <string name="retry">Prøv igen</string>
+    <string name="save_changes">Gem ændringer</string>
+
+    <string name="page_employees_title">Ansatte</string>
+    <string name="no_departments_for_employee">Ingen afdelinger tilnyttet</string>
+
+    <string name="edittext_title_firstname">Fornavn</string>
+    <string name="edittext_title_lastname">Efternavn</string>
+    <string name="edittext_title_gender">Køn</string>
+    <string name="gender_male">Mand</string>
+    <string name="gender_female">Kvinde</string>
+
 
 </resources>

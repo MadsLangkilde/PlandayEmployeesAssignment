@@ -20,8 +20,7 @@ class SplashScreenViewModel : ViewModel(), SplashScreenLogoView.SplashScreenLogo
     val progressText:                               ObservableField<String>         = ObservableField("")
     val networkAvailable:                           ObservableField<Boolean>        = ObservableField(true)
     val showRetryButton:                            ObservableField<Boolean>        = ObservableField(false)
-    val onReadyForLaunch: ActionLiveData<Boolean> =
-        ActionLiveData()
+    val onReadyForLaunch:                           ActionLiveData<Boolean> = ActionLiveData()
 
     private var authenticationTextProgress:         String                          = ""
     private var authenticationTextSuccess:          String                          = ""
@@ -95,7 +94,7 @@ class SplashScreenViewModel : ViewModel(), SplashScreenLogoView.SplashScreenLogo
     private fun onReady() {
         Handler(Looper.getMainLooper()).postDelayed({
             onReadyForLaunch.sendAction(true)
-        }, if (splashLogoAnimationDone) 200L else 700L)
+        }, if (splashLogoAnimationDone) 300L else 1200L)
     }
 
     override fun onSplashSceenLogoAnimationFinished() {

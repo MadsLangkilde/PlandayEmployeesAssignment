@@ -1,9 +1,7 @@
 package com.planday.employeesassignment.data.apis.plandayopenapi
 
-import com.planday.employeesassignment.data.apis.plandayopenapi.employees.models.Employee
-import com.planday.employeesassignment.data.apis.plandayopenapi.employees.models.ResponseGetEmployees
+import com.planday.employeesassignment.data.apis.plandayopenapi.employees.models.*
 import io.reactivex.Maybe
-import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -16,6 +14,10 @@ interface PlandayOpenApiEndpoints {
 
     @PUT("v{version}/employees/{id}")
     fun putEmployee(@Path("version") version: String,
-                    @Query("id") employeeId: Int,
-                    @Body employee: Employee): Maybe<Response<*>>
+                    @Path("id") employeeId: Int,
+                    @Body baseEmployee: Employee): Maybe<Response<ResponsePutEmployee>>
+
+    @GET("v{version}/employees/{id}")
+    fun getEmployee(@Path("version") version: String,
+                    @Path("id") employeeId: Int): Maybe<Response<ResponseGetEmployeeById>>
 }

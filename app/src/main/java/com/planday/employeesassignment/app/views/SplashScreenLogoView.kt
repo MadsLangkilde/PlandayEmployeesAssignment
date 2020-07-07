@@ -11,8 +11,7 @@ import androidx.databinding.BindingAdapter
 import com.planday.employeesassignment.R
 import kotlinx.android.synthetic.main.view_splash_screen_logo.view.*
 
-class SplashScreenLogoView(context: Context, attrs: AttributeSet) :
-    ConstraintLayout(context, attrs) {
+class SplashScreenLogoView(context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
     interface SplashScreenLogoViewListener {
         fun onSplashSceenLogoAnimationFinished()

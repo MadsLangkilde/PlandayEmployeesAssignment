@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="progress_text_default">18sp</dimen>
+    <dimen name="progress_text_default_textsize">17sp</dimen>
+    <dimen name="toolbar_title_textsize">19sp</dimen>
+    <dimen name="content_textsize">14sp</dimen>
+    <dimen name="edittext_title_textsize">14sp</dimen>
+    <dimen name="badge_small_textsize">13sp</dimen>
+    <dimen name="list_item_title_textsize">15sp</dimen>
+    <dimen name="formular_element_text_error_textsize">12sp</dimen>
+    <dimen name="textfield_text">15sp</dimen>
+    <dimen name="button_text">15sp</dimen>
 
 </resources>

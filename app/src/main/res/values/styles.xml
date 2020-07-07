@@ -1,31 +1,104 @@
 <resources>
 
-    <style name="textview_content_title_default">
-
+    <style name="textview_base">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="textview_content_subtitle_default">
-
+    <style name="textview_list_item_title_default">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="typeface">@string/MontserratSemiBold</item>
+        <item name="android:textColor">@color/grey_dark</item>
+        <item name="android:textSize">@dimen/list_item_title_textsize</item>
     </style>
 
     <style name="textview_content_default">
-
+        <item name="android:textSize">@dimen/content_textsize</item>
+        <item name="android:textColor">@color/grey_mid</item>
+        <item name="android:gravity">center</item>
     </style>
 
-    <style name="textview_progress_small">
+    <style name="textview_toolbar_title" parent="textview_base">
+        <item name="android:textSize">@dimen/toolbar_title_textsize</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="textview_edittext_title" parent="textview_base">
+        <item name="android:textSize">@dimen/edittext_title_textsize</item>
+        <item name="android:textColor">@color/grey_dark</item>
+    </style>
+
+    <style name="textview_progress_small" parent="textview_base">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/progress_text_default</item>
+        <item name="android:textSize">@dimen/progress_text_default_textsize</item>
         <item name="android:textColor">@color/grey_mid</item>
-        <item name="typeface">@string/MontserratRegular</item>
     </style>
 
     <style name="textview_transparent_button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/progress_text_default</item>
+        <item name="android:textSize">@dimen/progress_text_default_textsize</item>
         <item name="android:textColor">@color/planday_blue</item>
         <item name="typeface">@string/MontserratRegular</item>
+    </style>
+
+    <style name="edittext_error">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/formular_element_text_error_textsize</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="typeface">@string/MontserratRegular</item>
+    </style>
+
+    <style name="edittext_round_no_border">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/edittext_height_default</item>
+        <item name="typeface">@string/MontserratMedium</item>
+        <item name="android:textSize">@dimen/textfield_text</item>
+        <item name="android:textColorHint">@color/grey_light_transparent</item>
+        <item name="android:textColor">@color/grey_dark</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:lines">1</item>
+        <item name="android:paddingLeft">@dimen/padding_medium</item>
+        <item name="android:paddingRight">@dimen/padding_medium</item>
+        <item name="android:background">@drawable/textinput_edittext_no_border_round</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <style name="edittext_round" parent="edittext_round_no_border">
+        <item name="android:background">@drawable/textinput_edittext_round</item>
+    </style>
+
+    <style name="spinner_round">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/spinner_height_default</item>
+        <item name="android:background">@drawable/textinput_edittext_round</item>
+    </style>
+
+    <style name="button_default">
+        <item name="android:textSize">@dimen/button_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="typeface">@string/MontserratMedium</item>
+        <item name="android:state_checkable">true</item>
+    </style>
+
+    <style name="button_primary" parent="button_default">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_primary_height_default</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/button_primary_round</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
     </style>
 
 </resources>

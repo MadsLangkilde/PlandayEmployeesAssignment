@@ -1,10 +1,8 @@
 package com.planday.employeesassignment.data.apis.plandayopenapi.employees
 
 import com.planday.employeesassignment.data.apis.plandayopenapi.PlandayOpenApi
-import com.planday.employeesassignment.data.apis.plandayopenapi.employees.models.Employee
-import com.planday.employeesassignment.data.apis.plandayopenapi.employees.models.ResponseGetEmployees
+import com.planday.employeesassignment.data.apis.plandayopenapi.employees.models.*
 import io.reactivex.Maybe
-import io.reactivex.Single
 import retrofit2.Response
 
 open class EmployeesApi(private val apiVersion: String, clientId: String, baseUrl: String) : PlandayOpenApi(clientId = clientId, baseUrl = baseUrl) {
@@ -13,7 +11,11 @@ open class EmployeesApi(private val apiVersion: String, clientId: String, baseUr
         return makeRequest().getEmployees(apiVersion, limit, offset)
     }
 
-    open fun putEmployee(employee: Employee): Maybe<Response<*>> {
-        return makeRequest().putEmployee(apiVersion, employee.id, employee)
+    open fun putEmployee(baseEmployee: Employee): Maybe<Response<ResponsePutEmployee>> {
+        return makeRequest().putEmployee(apiVersion, baseEmployee.id, baseEmployee)
+    }
+
+    open fun getEmployee(employeeId: Int): Maybe<Response<ResponseGetEmployeeById>> {
+        return makeRequest().getEmployee(apiVersion, employeeId)
     }
 }

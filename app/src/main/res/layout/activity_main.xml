@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -7,14 +8,41 @@
                 type="com.planday.employeesassignment.app.activities.main.MainActivityViewModel" />
     </data>
 
-    <LinearLayout
+    <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_expanded_height"
+                android:background="@drawable/gradient_blue_vertical">
+
+            <ImageView
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/planday_logo_white"/>
+
+            <com.planday.employeesassignment.app.views.PDTextView
+                    style="@style/textview_toolbar_title"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/page_employees_title"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
         <FrameLayout
                 android:id="@+id/container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-    </LinearLayout>
+                android:layout_height="match_parent"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:background="@color/background_color_default"
+                android:clickable="true"
+                android:focusable="true" />
+    </FrameLayout>
 
 </layout>

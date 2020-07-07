@@ -32,7 +32,10 @@ abstract class BaseAdapterModel : BaseObservable() {
         return Objects.hash("BaseAdapterModel")
     }
 
-    abstract fun checkContent(): String
+    open fun checkContent(): String {
+        return "BaseAdapterModel"
+    }
+
     abstract fun getItemLayoutRes(): Int
 
     open fun onViewRecycled() {}

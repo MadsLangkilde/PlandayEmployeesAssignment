@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <com.planday.employeesassignment.app.views.edittext.PDEditText
+                android:id="@+id/textInputView"
+                style="@style/edittext_round"
+                android:maxLines="1"
+                android:lines="1"
+                android:inputType="text"/>
+
+        <com.planday.employeesassignment.app.views.PDTextView
+                android:id="@+id/textInputErrorCircle"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:visibility="gone"
+                android:layout_marginLeft="-22dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/textfield_error_indicator"/>
+
+    </LinearLayout>
+
+    <com.planday.employeesassignment.app.views.PDTextView
+            android:id="@+id/textInputError"
+            style="@style/edittext_error"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:paddingBottom="10dp"
+            android:visibility="gone"/>
+
+</LinearLayout>

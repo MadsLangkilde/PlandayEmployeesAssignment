@@ -7,7 +7,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.planday.employeesassignment.R
-import com.planday.employeesassignment.app.framework.PDBaseActivity
 import com.planday.employeesassignment.app.activities.main.MainActivity
 import com.planday.employeesassignment.databinding.ActivitySplashScreenBinding
 
@@ -43,7 +42,7 @@ class SplashScreenActivity : AppCompatActivity() {
         val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
         startActivity(intent)
         this@SplashScreenActivity.finish()
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left)
     }
 
 }
