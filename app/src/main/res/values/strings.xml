@@ -17,6 +17,7 @@
     <string name="edittext_title_gender">Køn</string>
     <string name="gender_male">Mand</string>
     <string name="gender_female">Kvinde</string>
+    <string name="unknmown_error_occurred">Der skete en fejl! Prøv igen senere!</string>
 
 
 </resources>

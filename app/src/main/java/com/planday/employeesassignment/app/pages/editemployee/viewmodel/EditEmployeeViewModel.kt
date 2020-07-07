@@ -30,7 +30,7 @@ class EditEmployeeViewModel : ViewModel(), BindingAdaptersSelectionViews.Compani
     var gendersObservable:          ObservableField<ArrayList<String>>      = ObservableField(ArrayList())
     var selectedGenderValue:        ObservableField<String>                 = ObservableField("")
     var editSuccessListener:        ActionLiveData<Boolean>                 = ActionLiveData()
-    var showKeyboardListener:       ActionLiveData<Boolean>                 = ActionLiveData()
+    var hideKeyboardListener:       ActionLiveData<Boolean>                 = ActionLiveData()
 
     var employee:                   Employee?                               = null
     private var genderKeys:         ArrayList<String>                       = ArrayList()
@@ -80,8 +80,6 @@ class EditEmployeeViewModel : ViewModel(), BindingAdaptersSelectionViews.Compani
                             firstName.set(employee.firstName)
                             lastName.set(employee.lastName)
                             email.set(employee.email)
-                            System.out.println("TESTTEST: employee.gender =" + employee.gender)
-                            System.out.println("TESTTEST: getGenderValueFromKey(employee.gender) =" + getGenderValueFromKey(employee.gender))
                             selectedGenderValue.set(getGenderValueFromKey(employee.gender))
                         }
                     }
@@ -101,7 +99,7 @@ class EditEmployeeViewModel : ViewModel(), BindingAdaptersSelectionViews.Compani
         if (submitInProgress.get() == true)
             return
 
-        showKeyboardListener.sendAction(false)
+        hideKeyboardListener.sendAction(true)
 
         employee?.let { employee ->
             submitInProgress.set(true)
@@ -116,25 +114,23 @@ class EditEmployeeViewModel : ViewModel(), BindingAdaptersSelectionViews.Compani
             } else {
                 employee.firstName  = firstName
                 employee.lastName   = lastName
-
-                System.out.println("TESTTEST: onSubmitEmployeeChanges employee.gender =" + employee.gender)
                 putEmployee(employee)
             }
         }
     }
 
     private fun putEmployee(employee: Employee) {
-        System.out.println("TESTTEST: putEmployee employee.gender =" + employee.gender)
         employeeRepository.putEmployee(employee)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : DisposableMaybeObserver<Response<ResponsePutEmployee>>() {
                 override fun onSuccess(response: Response<ResponsePutEmployee>) {
-                    System.out.println("TESTTEST: putEmployee response =" + response.code())
                     if (response.isSuccessful) {
+                        employeeRepository.employeeUpdatedSubject.onNext(employee)
                         employeeRepository.employeeUpdatedSubject.onNext(employee)
                         editSuccessListener.sendAction(true)
                     } else {
+                        editSuccessListener.sendAction(false)
                         errorOccurred.set(true)
                     }
                     submitInProgress.set(false)
@@ -146,6 +142,7 @@ class EditEmployeeViewModel : ViewModel(), BindingAdaptersSelectionViews.Compani
                 }
 
                 override fun onError(e: Throwable) {
+                    editSuccessListener.sendAction(false)
                     errorOccurred.set(true)
                     submitInProgress.set(false)
                     dispose()
@@ -154,9 +151,10 @@ class EditEmployeeViewModel : ViewModel(), BindingAdaptersSelectionViews.Compani
     }
 
     override fun onSpinnerItemSelected(item: String) {
-        System.out.println("TESTTEST: onSpinnerItemSelected item =" + item)
         getGenderKeyFromValue(item)?.let { employee?.gender = it }
-        System.out.println("TESTTEST: getGenderKeyFromValue(item) item =" + getGenderKeyFromValue(item))
     }
 
+    fun hideKeyboard() {
+        hideKeyboardListener.sendAction(true)
+    }
 }

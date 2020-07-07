@@ -3,6 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View"/>
         <variable
                 name="editEmployeeViewModel"
                 type="com.planday.employeesassignment.app.pages.editemployee.viewmodel.EditEmployeeViewModel" />
@@ -15,7 +16,8 @@
             android:orientation="vertical"
             android:padding="@dimen/padding_medium"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:onClick="@{() -> editEmployeeViewModel.hideKeyboard()}">
 
         <com.planday.employeesassignment.app.views.PDTextView
                 android:layout_width="match_parent"
@@ -58,14 +60,33 @@
                 app:selectedItem="@{editEmployeeViewModel.selectedGenderValue}"
                 app:spinnerSelectListener="@{editEmployeeViewModel}"/>
 
-        <com.planday.employeesassignment.app.views.PDTextView
-                style="@style/button_primary"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="@{!editEmployeeViewModel.submitInProgress}"
-                android:focusable="@{!editEmployeeViewModel.submitInProgress}"
-                android:enabled="@{!editEmployeeViewModel.submitInProgress}"
-                android:onClick="@{() ->  editEmployeeViewModel.onSubmitEmployeeChanges()}"
-                android:text="@string/save_changes"/>
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.planday.employeesassignment.app.views.PDTextView
+                        style="@style/button_primary"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="@{!editEmployeeViewModel.submitInProgress}"
+                        android:focusable="@{!editEmployeeViewModel.submitInProgress}"
+                        android:enabled="@{!editEmployeeViewModel.submitInProgress}"
+                        android:onClick="@{() ->  editEmployeeViewModel.onSubmitEmployeeChanges()}"
+                        android:text="@string/save_changes"/>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height_large"
+                        android:background="@drawable/button_primary_round_overlay"
+                        android:visibility="@{editEmployeeViewModel.submitInProgress ? View.VISIBLE : View.GONE}"/>
+
+            <ProgressBar
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/button_primary_round_overlay"
+                        android:indeterminateDrawable="@drawable/progress_white"
+                        android:visibility="@{editEmployeeViewModel.submitInProgress ? View.VISIBLE : View.GONE}"/>
+
+        </FrameLayout>
     </LinearLayout>
 
 </layout>
