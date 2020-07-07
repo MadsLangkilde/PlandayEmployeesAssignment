@@ -23,17 +23,15 @@ class EmployeesViewModel : ViewModel() {
 
     val baseAdapterModelsLiveData:      MutableLiveData<List<BaseAdapterModel>> = MutableLiveData()
     val allEmployeesLoaded:             ObservableField<Boolean>                = ObservableField(false)
-    val baseEmployeeClickListener:          ActionLiveData<BaseEmployee>                = ActionLiveData()
+    val hideKeyboardListener:           ActionLiveData<Boolean>                 = ActionLiveData()
+    val baseEmployeeClickListener:      ActionLiveData<BaseEmployee>            = ActionLiveData()
 
-    private val baseEmployees:              ArrayList<BaseEmployee>                     = ArrayList()
+    private val baseEmployees:          ArrayList<BaseEmployee>                 = ArrayList()
     private val employeesRepository:    EmployeesRepository                     = EmployeesRepository.instance
-
-    private var isLoading:              Boolean                                 = false
-
 
     var catalogsVisibleItemListener: BindingAdaptersRecyclerViews.RecyclerViewVisibleItemListener = object :
         BindingAdaptersRecyclerViews.RecyclerViewVisibleItemListener {
-        override fun onShowFirstVisibleItemPosition(position: Int) {  }
+        override fun onShowFirstVisibleItemPosition(position: Int) { hideKeyboardListener.sendAction(true) }
         override fun onShowLastVisibleItemPosition(position: Int) {}
         override fun onShowFirstCompleteVisibleItemPosition(position: Int) {  }
         override fun onShowLastCompleteVisibleItemPosition(position: Int) { onScrolledToPosition(position) }

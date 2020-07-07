@@ -30,6 +30,7 @@
     <dimen name="toolbar_expanded_height">140dp</dimen>
     <dimen name="edittext_height_default">62dp</dimen>
     <dimen name="spinner_height_default">62dp</dimen>
+    <dimen name="progress_spinner_size_default">35dp</dimen>
 
     <!-- Radius -->
     <dimen name="textfield_rounded_radius_default">6dp</dimen>
@@ -37,4 +38,9 @@
 
     <!-- Button -->
     <dimen name="button_primary_height_default">62dp</dimen>
+    <dimen name="button_height_large">52dp</dimen>
+    <dimen name="button_height_default">46dp</dimen>
+    <dimen name="button_height_small">30dp</dimen>
+
+
 </resources>

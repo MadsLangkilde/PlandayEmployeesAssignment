@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -55,12 +56,11 @@ class EditEmployeeFragment : PDBaseFragment() {
         mViewModel.editSuccessListener.observe(viewLifecycleOwner, Observer { success ->
             if (success)
                 popFragment()
-        })
-        mViewModel.showKeyboardListener.observe(viewLifecycleOwner, Observer { show ->
-            if (show)
-                KeyboardService.showKeyboard(context)
             else
-                KeyboardService.showKeyboard(context)
+                Toast.makeText(context, getString(R.string.unknmown_error_occurred), Toast.LENGTH_SHORT).show()
+        })
+        mViewModel.hideKeyboardListener.observe(viewLifecycleOwner, Observer {
+            activity?.let { KeyboardService.hideKeyboard(it) }
         })
     }
 

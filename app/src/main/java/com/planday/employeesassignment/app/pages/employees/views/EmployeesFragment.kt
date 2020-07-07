@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.layout_employees.*
 import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 import com.planday.employeesassignment.app.components.adapter.SmoothScrollLinearLayoutManager
 import com.planday.employeesassignment.app.pages.editemployee.views.EditEmployeeFragment
+import com.planday.employeesassignment.services.other.KeyboardService
 
 class EmployeesFragment : PDBaseFragment() {
 
@@ -38,6 +39,9 @@ class EmployeesFragment : PDBaseFragment() {
 
         mViewModel.baseEmployeeClickListener.observe(viewLifecycleOwner, Observer { employee ->
             pushFragment(EditEmployeeFragment.newInstance(employee))
+        })
+        mViewModel.hideKeyboardListener.observe(viewLifecycleOwner, Observer { hide ->
+            activity?.let { KeyboardService.hideKeyboard(it) }
         })
     }
 
